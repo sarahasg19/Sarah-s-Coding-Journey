@@ -91,14 +91,14 @@ def answer_question(data, question):
         print("\nSorry, I don't understand that question yet.")
 
 
-data = load_data()
+if __name__ == "__main__":
+    data = load_data()
 
+    while True:
+        question = input("\nWhat would you like to know about the sales data? ")
 
-while True:
-    question = input("\nWhat would you like to know about the sales data? ")
+        if question.lower() == "exit":
+            print("Goodbye!")
+            break
 
-    if question.lower() == "exit":
-        print("Goodbye!")
-        break
-
-    answer_question(data, question)
+        answer_question(data, question)
