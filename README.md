@@ -1,8 +1,8 @@
 # AI Cloud Data Assistant
 
-A Python-based AI data assistant that combines local data analysis with Microsoft Azure AI.
+A cloud-hosted Python application that combines data analysis with Azure AI to answer natural-language questions about sales data.
 
-The application allows users to ask natural-language questions about sales data. Azure OpenAI is used to understand and classify the user's question, while Python and pandas perform the actual data analysis.
+LIVE DEMO: https://sarah-ai-cloud-assistant-cugkfpc0cxgbgyab.westus3-01.azurewebsites.net/ 
 
 ## Project Overview
 
@@ -20,15 +20,21 @@ The application interprets the question using an Azure-hosted GPT model and then
 
 ## Architecture
 
-```text
+The application follows a simple flow:
+
+1. User interface — Streamlit: Users view sales metrics, explore a revenue chart, and enter questions.
+2. AI interpretation — Azure AI: GPT-4.1-mini classifies natural-language questions into supported categories.
+3. Data processing — Python and pandas: The application loads the CSV dataset, calculates revenue, and retrieves the requested results.
+4. Cloud hosting — Azure App Service: The application is hosted as a web application and can be accessed through its public URL.
+5. Deployment automation — GitHub Actions: A workflow installs project dependencies and deploys changes to Azure when code is pushed to the main branch.
+
 User
   │
   ▼
-Natural-language question
+Streamlit Web Dashboard
   │
   ▼
-Microsoft Azure AI
-GPT-4.1-mini
+Azure AI - GPT-4.1-mini
   │
   ▼
 Question classification
@@ -41,7 +47,7 @@ Question classification
 Python + pandas
   │
   ▼
-CSV sales data
+Sales data (CSV)
   │
   ▼
 Calculated result
@@ -61,23 +67,15 @@ The application can:
 
 ## Technologies
 
-- Python
-- pandas
-- Microsoft Azure AI
-- Azure-hosted GPT-4.1-mini
-- Azure Identity
-- Microsoft Foundry
-- Git
-- GitHub
-- CSV
-
-## Project Goal
-
-The goal of this project is to build a small cloud-based AI data assistant step by step.
-
-The current version performs the data analysis locally with Python.
-
-Future versions will integrate AI and Microsoft Azure services.
+- Python — application logic and data processing
+- pandas — data manipulation and calculations
+- Microsoft Azure AI — natural-language question classification
+- GPT-4.1-mini — AI model used to interpret questions
+- Streamlit — interactive web dashboard
+- Azure App Service — cloud hosting
+- Azure Identity — authentication to Azure AI services
+- Git and GitHub — version control and source code management
+- CSV — sample data storage
 
 ## Example Questions
 
@@ -130,33 +128,24 @@ For local development, authenticate with the Azure CLI:
 
 az login
 
-6. Run the application
+6. Run the dashboard
 
-python app.py
+python -m streamlit run streamlit_app.py
 
 ## Project Status
 
-In development
+Status: Deployed portfolio prototype — ongoing development.
 
-The current version is a functional prototype.
+The current version supports a defined set of sales-related questions. Expanding the range of supported questions and improving error handling are potential next steps.
 
-Future improvements could include:
+## Learning Objectives
 
-- A web-based user interface
-- More advanced data analysis
-- Additional question types
-- Data visualization
-- Improved error handling
-- Deployment as a cloud-based application
+This project explores:
 
-Learning Goals
-
-This project is helping me build practical experience with:
-
-- Python development
-- Data analysis
-- AI integration
-- Microsoft Azure
--Cloud-based AI services
-- Git and GitHub
-- Building and documenting a small end-to-end application
+- Integrating generative AI into a Python application
+- Combining AI-based intent classification with deterministic data analysis
+- Building interactive data applications with Streamlit
+- Hosting Python applications on Microsoft Azure
+- Using managed identities for cloud authentication
+- Automating deployment with GitHub Actions
+- Documenting and maintaining a cloud-based software project
