@@ -1,4 +1,4 @@
-# AI Cloud Data Assistant
+# Azure AI Sales Data Assistant
 
 A cloud-hosted Python application that combines data analysis with Azure AI to answer natural-language questions about sales data.
 
