@@ -138,6 +138,13 @@ Status: Deployed portfolio prototype — ongoing development.
 
 The current version supports a defined set of sales-related questions. Expanding the range of supported questions and improving error handling are potential next steps.
 
+## Security
+
+**Managed Identity:** The Azure App Service uses managed identity to authenticate to Azure AI without storing a fixed API key in the application code.
+**Access control:** Azure role-based access control (RBAC) grants the application identity the permissions required to access the Azure AI resource.
+**Credential management:** The application avoids embedding long-lived API keys directly in the source code.
+**Security scope:** Managed identity reduces credential-management risks but does not replace broader security measures such as input validation, monitoring, and least-privilege access.
+
 ## Learning Objectives
 
 This project explores:
